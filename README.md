@@ -112,9 +112,14 @@ Make the system smarter over time using feedback from past decisions
 
 # **Decision Flow (How a Verification Request is Handled)**
 
+
 <img width="881" height="846" alt="Location Verification Service drawio" src="https://github.com/user-attachments/assets/5601c930-e652-4b99-a78d-d51c984197e7" />
 
+
+
 **Rule**: Never hard-block a user outright — always offer an alternative path. This reduces support tickets and protects genuine users.
+
+
 
 
 # **How Spoofing is Detected — Step by Step**
