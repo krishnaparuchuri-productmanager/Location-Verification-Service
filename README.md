@@ -1,4 +1,4 @@
-**Location Verification System**
+🌍 **Location Verification System**🌍 
 
 A smart system that checks whether a user is really where they claim to be to prevent fraud, meet legal requirements, and keep the experience smooth for genuine users.
 
@@ -36,6 +36,53 @@ If everything checks out →  Let them through (no friction)
 If something looks off →  Ask for extra verification (SMS OTP)
 If it looks really suspicious →  Flag for human review
 
+**Location Spoofing Detection — Technical Layers**
+
+**Layer 1** — Device Integrity Checks
+
+Detect if mock location apps (e.g., Fake GPS) are installed or enabled
+​
+
+Check for root/jailbreak indicators on iOS and Android
+
+Identify emulator or virtual device signatures
+
+Verify developer mode is not active for location overrides
+
+**Layer 2** — Multi-Signal Cross-Validation
+
+Compare GPS coordinates vs. IP Geolocation — flag mismatches (e.g., GPS → New York, IP → India)
+​
+
+Compare against Wi-Fi triangulation (harder to spoof than GPS alone)
+
+Compare against Cell Tower data for urban accuracy
+
+**Layer 3** — Signal Anomaly Detection
+
+Analyze GPS signal power levels — spoofed signals are often too strong or unnaturally consistent
+​
+
+Detect impossible travel: user in London 5 mins ago, now GPS shows Tokyo
+
+Monitor velocity checks between consecutive location pings
+
+**Layer 4** — Environmental Consistency
+
+Correlate accelerometer/gyroscope with location movement (no movement on sensors but GPS shows travel = suspicious)
+​
+
+Validate timezone consistency with claimed GPS location
+
+Match daylight/sensor light patterns with claimed geographic time
+
+**Layer 5** — Behavioral ML Model
+
+Build a per-user location behavior profile (normal device, normal region, normal hours)
+
+Flag deviations from established patterns (new device + new location + high-value transaction = high risk)
+
+Continuous retraining from manual review feedback loops
 
 
 **Goals of This Project**
@@ -106,6 +153,14 @@ Does this location match where the user usually operates?
 Is this a new device + new location + large transaction all at once? → Higher risk.
 
 The system builds a normal behavior profile per user and flags anything unusual.
+
+**Risk-Based Decision Framework**
+
+Risk Score 0–30  → AUTO APPROVE       (Low friction, trusted user path)
+Risk Score 31–70 → STEP-UP VERIFY     (SMS OTP / re-prompt location permission)
+Risk Score 71–100 → MANUAL REVIEW     (Human review queue with rich context)
+
+
 
 **How Success is Measured**
 
