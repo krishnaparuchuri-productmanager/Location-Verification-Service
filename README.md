@@ -98,7 +98,7 @@ Stay compliant with international regulations (KYC, AML, OFAC)
 
 Make the system smarter over time using feedback from past decisions
 
-# **Key Features** --------------
+# **Key Features** 
 
 | Feature                   | What It Does                                                                             |
 | ------------------------- | ---------------------------------------------------------------------------------------- |
