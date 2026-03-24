@@ -130,7 +130,7 @@ Before even looking at location, the system checks if the phone itself can be tr
 
 Is it a real device or a computer simulator?
 
-Is it rooted/jailbroken (which allows system-level location faking)?
+Is it rooted/jailbroken (which allows system-level location faking.)?
 
 Is a fake GPS app installed or running?
 
